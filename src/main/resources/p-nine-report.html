@@ -1,10 +1,246 @@
-<!--<!DOCTYPE html>-->
-<!DOCTYPE definition [<!ENTITY amp "&#38;">]>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <title>P9 Report</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>KRA P9 Tax Certificate</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 10px;
+            /* Force single page with scrollable content */
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .container {
+            /* Set minimum height to ensure scrollability */
+            min-height: 150vh; /* Increase this value for more scroll space */
+            position: relative;
+        }
+
+        .letter-head {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: lighter;
+            margin: 5px 0;
+        }
+
+        table {
+            margin: 7px 0 7px 0;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1.3px solid black;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            font-size: 8px;
+            padding: 2px;
+            text-align: center;
+        }
+
+        .employee-details td {
+            border: none;
+            font-size: 10px;
+            text-align: left;
+            padding: 3px 5px;
+        }
+
+        .main-table-summary td {
+            border: none;
+            font-size: 10px;
+            text-align: left;
+            padding: 3px 5px;
+        }
+
+        /* Scrollable table container for dynamic monthly data */
+        .table-container {
+            max-height: 60vh; /* Adjust this to control how much of the viewport the table takes */
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+
+        /* Make the table header sticky during scroll */
+        .main-table thead th {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 10;
+        }
+
+        /* Add extra spacing after the summary */
+        .extra-space {
+            height: 50vh; /* Adjust this to add more white space for scrolling */
+            background-color: transparent;
+        }
+
+        /* Custom scrollbar styling */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        @page {
+            size: A4 landscape;
+            margin: 0.3in;
+
+            @bottom-center { content: none; }
+            @bottom-left { content: none; }
+            @bottom-right { content: none; }
+            @top-center { content: none; }
+            @top-left { content: none; }
+            @top-right { content: none; }
+        }
+
+        .page-number, .pagination, [class*="page"], [id*="page"] {
+            display: none !important;
+        }
+
+        /* Ensure content fits in viewport for PDF generation */
+        @media print {
+            body {
+                height: auto;
+                overflow: visible;
+            }
+
+            .container {
+                min-height: auto;
+            }
+
+            .table-container {
+                max-height: none;
+                overflow: visible;
+                border: none;
+            }
+
+            .extra-space {
+                height: 2cm; /* Smaller space for print */
+            }
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <header>
+        <section class="letter-head">
+            <h1>KENYA REVENUE AUTHORITY</h1>
+            <h2>INCOME TAX DEPARTMENT</h2>
+            <h2>INCOME TAX DEDUCTION CARD YEAR {{YEAR}}</h2>
+        </section>
+        <section class="header-details">
+            <table class="employee-details" style="width: 100%; border-collapse: collapse;">
+                <tbody>
+                <tr>
+                    <td style="width: 50%;">Employer's Name: {{EMPLOYER_NAME}}</td>
+                    <td style="width: 50%;">Employer's P.I.N.: {{EMPLOYER_PIN}}</td>
+                </tr>
+                <tr>
+                    <td>Employee's Main Name: {{EMPLOYEE_LASTNAME}}</td>
+                    <td>Employee's P.I.N.: {{EMPLOYEE_PIN}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Employee's Other Names: {{EMPLOYEE_FIRSTNAME}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </header>
+
+    <main>
+        <!-- Scrollable table container for dynamic monthly data -->
+        <div class="table-container">
+            <table class="main-table" style="width: 100%; border-collapse: collapse; font-size: 10px;">
+                <thead>
+                <tr>
+                    <th style="width: 8%; text-align: left;">MONTH</th>
+                    <th style="width: 7%; text-align: left;">Basic Salary<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Benefits - Non Cash<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Value of Quarters<br />Kshs.</th>
+                    <th style="width: 7%; text-align: left;">Total Gross Pay<br />Kshs.</th>
+                    <th colspan="3" style="width: 15%; text-align: left;">Defined Contribution <br /> Retirement Scheme<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Owner-Occupied Interest<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Retirement <br /> Contribution &amp; Owner <br /> Occupied <br /> Interest</th>
+                    <th style="width: 7%; text-align: left;">Chargeable Pay<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Tax Charged<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Personal Relief<br />Kshs.</th>
+                    <th style="width: 6%; text-align: left;">Insurance Relief<br />Kshs.</th>
+                    <th style="width: 7%; text-align: left;">P.A.Y.E Tax (J-K)<br />Kshs.</th>
+                </tr>
+                <tr>
+                    <th rowspan="2"></th>
+                    <th rowspan="2" style="text-align: left;">A</th>
+                    <th rowspan="2" style="text-align: left;">B</th>
+                    <th rowspan="2" style="text-align: left;">C</th>
+                    <th rowspan="2" style="text-align: left;">D</th>
+                    <th colspan="3" style="text-align: left;">E</th>
+                    <th rowspan="2" style="text-align: left;">F</th>
+                    <th rowspan="2" style="text-align: left;">G</th>
+                    <th rowspan="2" style="text-align: left;">H</th>
+                    <th rowspan="2" style="text-align: left;">J</th>
+                    <th colspan="2" style="text-align: left;">K</th>
+                    <th rowspan="2" style="text-align: left;">L</th>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">E1 <br /> 30% of A</th>
+                    <th style="text-align: left;">E2 <br /> Actual</th>
+                    <th style="text-align: left;">E3 <br /> Fixed</th>
+                    <th style="text-align: left;"></th>
+                    <th style="text-align: left;"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{MONTHLY_DATA_ROWS}}
+                </tbody>
+            </table>
+        </div>
+
+        <table class="main-table-summary" style="width: 100%; border-collapse: collapse; font-size: 10px; margin-top: 10px;">
+            <tbody>
+            <tr>
+                <td style="width: 60%;">To be completed by Employer at end of year</td>
+                <td style="width: 40%;">TOTAL TAX (COL L) Kshs. {{TOTAL_TAX}}</td>
+            </tr>
+            <tr>
+                <td>TOTAL CHARGEABLE PAY (COL H) Kshs. {{TOTAL_CHARGEABLE_PAY}}</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- Extra white space for scrolling -->
+        <div class="extra-space"></div>
+    </main>
+</div>
 
 </body>
 </html>

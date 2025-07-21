@@ -1,10 +1,437 @@
-<!--<!DOCTYPE html>-->
-<!DOCTYPE definition [<!ENTITY amp "&#38;">]>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-    <title>Account Statements</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Financial Statement - Ukulima Sacco</title>
+    <style type="text/css">
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: white;
+            font-size: 11px;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Main Container */
+        .statement-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: white;
+        }
+
+        /* Header Section */
+        .header-section {
+            width: 100%;
+            border-bottom: 3px solid #4CAF50;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            display: table;
+        }
+
+        .header-left {
+            display: table-cell;
+            vertical-align: top;
+            width: 60%;
+        }
+
+        .header-right {
+            display: table-cell;
+            vertical-align: top;
+            width: 40%;
+            text-align: right;
+        }
+
+        .sacco-logo {
+            width: 150px;
+            height: auto;
+        }
+
+        .company-info h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 2px;
+        }
+
+        .tagline {
+            font-size: 10px;
+            font-style: italic;
+            color: #4CAF50;
+        }
+
+        .header-right h2 {
+            font-size: 15px;
+            font-weight: 200;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .date-issued {
+            font-size: 14px;
+            color: #333;
+            margin-top: 5px;
+        }
+
+        /* Main Content Section */
+        .main-content {
+            width: 100%;
+            margin-bottom: 20px;
+            display: table;
+        }
+
+        .left-column {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+            padding-right: 40px;
+        }
+
+        .right-column {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .customer-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .customer-details {
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .period {
+            font-size: 12px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Account Summary */
+        .account-summary {
+            background-color: #fff;
+            margin-top: 15px;
+        }
+
+        .account-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .summary-line {
+            height: 2px;
+            background-color: #4CAF50;
+            margin: 10px 0;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .summary-table td {
+            padding: 3px 0;
+            font-size: 11px;
+            color: #333;
+        }
+
+        .summary-label {
+            text-align: left;
+        }
+
+        .summary-amount {
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .credit-amount {
+            color: #4CAF50 !important;
+        }
+
+        .debit-amount {
+            color: #e60000 !important;
+        }
+
+        .closing-amount {
+            font-weight: bold;
+            color: #000;
+        }
+
+        /* Contact Information */
+        .contact-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .contact-item {
+            font-size: 11px;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .contact-note {
+            font-size: 10px;
+            color: #666;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
+        .office-hours {
+            font-size: 10px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Transactions Section */
+        .transactions-separator {
+            height: 2px;
+            background-color: #4CAF50;
+            margin: 15px 0;
+        }
+
+        .transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 9px;
+        }
+
+        .transactions-table th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 4px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #45a049;
+            font-size: 9px;
+        }
+
+        .transactions-table td {
+            padding: 4px 3px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+            font-size: 9px;
+        }
+
+        .transactions-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* Column Widths */
+        .date-col {
+            width: 12%;
+        }
+
+        .doc-col {
+            width: 15%;
+            font-family: 'Courier New', monospace;
+        }
+
+        .description-col {
+            width: 40%;
+        }
+
+        .amount-col {
+            width: 11%;
+            text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+
+        .balance-col {
+            width: 11%;
+            text-align: right;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        /* Amount Styling */
+        .table-credit {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .table-debit {
+            color: #e60000;
+        }
+
+        .balance-amount {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Pagination */
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            font-size: 10px;
+            color: #666;
+            page-break-inside: avoid;
+        }
+
+        .page-number {
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Page break handling */
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* Print optimizations */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                background-color: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .statement-container {
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 10px;
+                box-shadow: none;
+            }
+
+            .transactions-table {
+                font-size: 8px;
+            }
+
+            .transactions-table th,
+            .transactions-table td {
+                padding: 3px 2px;
+            }
+
+            .pagination {
+                position: fixed;
+                bottom: 10px;
+                width: 100%;
+                text-align: center;
+                font-size: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
+<div class="statement-container">
+    <!-- Header Section -->
+    <div class="header-section">
+        <div class="header-left">
+            <img src="assets/ukulima-sacco-logo.png" alt="Ukulima Sacco Logo" class="sacco-logo" />
+        </div>
+        <div class="header-right">
+            <h2>UKULIMA SACCO</h2>
+            <div class="date-issued">Date Issued: {{DATE_ISSUED}}</div>
+        </div>
+    </div>
 
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <div class="left-column">
+            <div class="customer-name">{{CUSTOMER_NAME}}</div>
+            <div class="customer-details">{{CUSTOMER_PHONE}}</div>
+            <div class="period">{{STATEMENT_PERIOD}}</div>
+
+            <!-- Account Summary -->
+            <div class="account-summary">
+                <div class="account-title">FOSA Savings Account ({{ACCOUNT_NUMBER}})</div>
+                <div class="summary-line"></div>
+
+                <table class="summary-table">
+                    <tr>
+                        <td class="summary-label">Opening Balance:</td>
+                        <td class="summary-amount">{{OPENING_BALANCE}}</td>
+                    </tr>
+                    <tr>
+                        <td class="summary-label">Credits:</td>
+                        <td class="summary-amount credit-amount">{{TOTAL_CREDITS}}</td>
+                    </tr>
+                    <tr>
+                        <td class="summary-label">Debits:</td>
+                        <td class="summary-amount debit-amount">{{TOTAL_DEBITS}}</td>
+                    </tr>
+                </table>
+
+                <div class="summary-line"></div>
+
+                <table class="summary-table">
+                    <tr>
+                        <td class="summary-label">Closing Balance:</td>
+                        <td class="summary-amount closing-amount">{{CLOSING_BALANCE}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="contact-info">
+                <h3 class="contact-title">Contact Information</h3>
+                <div class="contact-item"><strong>Email:</strong> info@ukulimasacco.coop</div>
+                <div class="contact-item"><strong>Website:</strong> https://ukulimasacco.coop</div>
+                <div class="contact-item"><strong>Tel:</strong> 0709943000</div>
+                <div class="contact-note">Contact us for questions, on this statement, change of personal information, and general inquiries.</div>
+                <div class="office-hours">Mon - Fri: 8:30am - 5:00 PM</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="transactions-separator"></div>
+
+    <!-- Transactions Table -->
+    <div class="transactions-section">
+        <table class="transactions-table">
+            <thead>
+            <tr>
+                <th class="date-col">Date</th>
+                <th class="doc-col">Doc No</th>
+                <th class="description-col">Description</th>
+                <th class="amount-col">Credit</th>
+                <th class="amount-col">Debit</th>
+                <th class="balance-col">Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{TRANSACTIONS}}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Spacer to push pagination towards bottom -->
+    <div style="height: 250px;"></div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <span class="page-number">{{PAGE_NUMBER}}</span>
+    </div>
+</div>
 </body>
 </html>
