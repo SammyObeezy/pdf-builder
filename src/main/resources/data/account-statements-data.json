@@ -1,0 +1,258 @@
+{
+  "dateIssued": "5th February 2024",
+  "customer": {
+    "name": "Mr. John Juma",
+    "phone": "++254722368794",
+    "email": "john.juma@email.com",
+    "address": "P.O. Box 12345-00100, Nairobi, Kenya"
+  },
+  "statementPeriod": "7 Jan 2022 to 2 June 2022",
+  "account": {
+    "number": "1234567890",
+    "type": "FOSA Savings Account",
+    "currency": "KES"
+  },
+  "balances": {
+    "opening": "KES 125,430.50",
+    "totalCredits": "KES 142,550.00",
+    "totalDebits": "KES 78,810.25",
+    "closing": "KES 189,170.25"
+  },
+  "transactions": [
+    {
+      "date": "01/12/2023",
+      "docNo": "TXN001234",
+      "description": "Salary Deposit - November 2023",
+      "credit": "35,000.00",
+      "debit": "",
+      "balance": "160,430.50"
+    },
+    {
+      "date": "02/12/2023",
+      "docNo": "TXN001235",
+      "description": "Mobile Banking Transfer to Jane Akinyi",
+      "credit": "",
+      "debit": "2,500.00",
+      "balance": "157,930.50"
+    },
+    {
+      "date": "05/12/2023",
+      "docNo": "TXN001236",
+      "description": "ATM Withdrawal - Main Branch ATM",
+      "credit": "",
+      "debit": "5,000.00",
+      "balance": "152,930.50"
+    },
+    {
+      "date": "08/12/2023",
+      "docNo": "TXN001237",
+      "description": "Standing Order - Insurance Premium",
+      "credit": "",
+      "debit": "3,200.00",
+      "balance": "149,730.50"
+    },
+    {
+      "date": "10/12/2023",
+      "docNo": "TXN001238",
+      "description": "Interest Earned - November 2023",
+      "credit": "1,850.00",
+      "debit": "",
+      "balance": "151,580.50"
+    },
+    {
+      "date": "12/12/2023",
+      "docNo": "TXN001239",
+      "description": "POS Payment - Artcaffe Restaurant",
+      "credit": "",
+      "debit": "4,750.00",
+      "balance": "146,830.50"
+    },
+    {
+      "date": "15/12/2023",
+      "docNo": "TXN001240",
+      "description": "Loan Disbursement - Personal Loan",
+      "credit": "50,000.00",
+      "debit": "",
+      "balance": "196,830.50"
+    },
+    {
+      "date": "18/12/2023",
+      "docNo": "TXN001241",
+      "description": "School Fees Payment - Brookside Academy",
+      "credit": "",
+      "debit": "25,000.00",
+      "balance": "171,830.50"
+    },
+    {
+      "date": "20/12/2023",
+      "docNo": "TXN001242",
+      "description": "Dividend Payment - Share Capital",
+      "credit": "3,500.00",
+      "debit": "",
+      "balance": "175,330.50"
+    },
+    {
+      "date": "22/12/2023",
+      "docNo": "TXN001243",
+      "description": "ATM Withdrawal - Westlands Branch",
+      "credit": "",
+      "debit": "8,000.00",
+      "balance": "167,330.50"
+    },
+    {
+      "date": "25/12/2023",
+      "docNo": "TXN001244",
+      "description": "Christmas Bonus Deposit",
+      "credit": "15,000.00",
+      "debit": "",
+      "balance": "182,330.50"
+    },
+    {
+      "date": "28/12/2023",
+      "docNo": "TXN001245",
+      "description": "Monthly Service Charge",
+      "credit": "",
+      "debit": "500.00",
+      "balance": "181,830.50"
+    },
+    {
+      "date": "30/12/2023",
+      "docNo": "TXN001246",
+      "description": "Year-end Processing Fee",
+      "credit": "",
+      "debit": "250.00",
+      "balance": "181,580.50"
+    },
+    {
+      "date": "31/12/2023",
+      "docNo": "TXN001247",
+      "description": "December Interest Capitalization",
+      "credit": "1,200.00",
+      "debit": "",
+      "balance": "182,780.50"
+    },
+    {
+      "date": "02/01/2024",
+      "docNo": "TXN001248",
+      "description": "Utility Bill - Nairobi Water",
+      "credit": "",
+      "debit": "1,800.00",
+      "balance": "180,980.50"
+    },
+    {
+      "date": "04/01/2024",
+      "docNo": "TXN001249",
+      "description": "POS Payment - Naivas Supermarket",
+      "credit": "",
+      "debit": "7,230.00",
+      "balance": "173,750.50"
+    },
+    {
+      "date": "05/01/2024",
+      "docNo": "TXN001250",
+      "description": "Mobile Banking Transfer from Peter Omondi",
+      "credit": "5,000.00",
+      "debit": "",
+      "balance": "178,750.50"
+    },
+    {
+      "date": "08/01/2024",
+      "docNo": "TXN001251",
+      "description": "ATM Withdrawal - Garden City Mall",
+      "credit": "",
+      "debit": "10,000.00",
+      "balance": "168,750.50"
+    },
+    {
+      "date": "10/01/2024",
+      "docNo": "TXN001252",
+      "description": "Cheque Deposit - CHQ54321",
+      "credit": "25,000.00",
+      "debit": "",
+      "balance": "193,750.50"
+    },
+    {
+      "date": "12/01/2024",
+      "docNo": "TXN001253",
+      "description": "Internet Banking Bill Payment - Zuku",
+      "credit": "",
+      "debit": "5,500.00",
+      "balance": "188,250.50"
+    },
+    {
+      "date": "15/01/2024",
+      "docNo": "TXN001254",
+      "description": "POS Payment - Java House",
+      "credit": "",
+      "debit": "2,150.00",
+      "balance": "186,100.50"
+    },
+    {
+      "date": "18/01/2024",
+      "docNo": "TXN001255",
+      "description": "Loan Repayment - Personal Loan",
+      "credit": "",
+      "debit": "10,500.00",
+      "balance": "175,600.50"
+    },
+    {
+      "date": "22/01/2024",
+      "docNo": "TXN001256",
+      "description": "Mobile Banking Transfer to Self",
+      "credit": "",
+      "debit": "3,000.00",
+      "balance": "172,600.50"
+    },
+    {
+      "date": "25/01/2024",
+      "docNo": "TXN001257",
+      "description": "POS Payment - Total Petrol Station",
+      "credit": "",
+      "debit": "4,500.00",
+      "balance": "168,100.50"
+    },
+    {
+      "date": "28/01/2024",
+      "docNo": "TXN001258",
+      "description": "ATM Withdrawal - JKIA Airport",
+      "credit": "",
+      "debit": "15,000.00",
+      "balance": "153,100.50"
+    },
+    {
+      "date": "30/01/2024",
+      "docNo": "TXN001259",
+      "description": "Salary Deposit - December 2023",
+      "credit": "35,000.00",
+      "debit": "",
+      "balance": "188,100.50"
+    },
+    {
+      "date": "31/01/2024",
+      "docNo": "TXN001260",
+      "description": "January Interest Capitalization",
+      "credit": "1,070.00",
+      "debit": "",
+      "balance": "189,170.50"
+    },
+    {
+      "date": "31/01/2024",
+      "docNo": "TXN001261",
+      "description": "Monthly Service Charge",
+      "credit": "",
+      "debit": "500.00",
+      "balance": "188,670.25"
+    }
+  ],
+  "pageNumber": "1",
+  "contact": {
+    "email": "info@ukulimasacco.coop",
+    "website": "https://ukulimasacco.coop",
+    "phone": "0709943000",
+    "officeHours": "Mon - Fri: 8:30am - 5:00 PM; Sat: 9:00am - 1:00pm"
+  },
+  "notes": {
+    "contactNote": "Contact us for questions, on this statement, change of personal information, and general inquiries. Please report any discrepancies within 30 days of the statement date.",
+    "disclaimer": "This is a computer-generated statement and does not require a signature. All transactions are subject to the SACCO's terms and conditions."
+  }
+}
